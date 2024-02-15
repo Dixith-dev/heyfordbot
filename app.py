@@ -5,7 +5,6 @@ from flask_cors import CORS
 from dotenv import load_dotenv
 from salesgpt.agents import SalesGPT
 from langchain_community.chat_models import ChatLiteLLM
-from training_data import data
 import sys
 import io
 
