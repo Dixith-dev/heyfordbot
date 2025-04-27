@@ -4,4 +4,4 @@ Flask-Cors==4.0.0
 langchain== 0.1.0
 google-generativeai==0.3.2
 python-dotenv==1.0.1
-sqlite3==3.35.0
+db-sqlite3

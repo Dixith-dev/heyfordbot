@@ -46,15 +46,15 @@ function linkify(inputText) {
 const createChatLi = (message, className) => {
     const chatLi = document.createElement("li");
     chatLi.classList.add("chat", className);
-    let chatContent = className === "outgoing" ? 
-        `<p>${message}</p>` : 
+    let chatContent = className === "outgoing" ?
+        `<p>${message}</p>` :
         `<span class="material-symbols-outlined">smart_toy</span><p>${linkify(message)}</p>`;
     chatLi.innerHTML = chatContent;
     return chatLi;
 };
 
 const generateResponse = (chatElement, typingInterval) => {
-    const SERVER_URL = "https://heyfordbot1.onrender.com//get-response";
+    const SERVER_URL = "/get-response";
     const userId = getUserId();
 
     fetch(SERVER_URL, {
@@ -62,7 +62,7 @@ const generateResponse = (chatElement, typingInterval) => {
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify({ 
+        body: JSON.stringify({
             message: userMessage,
             user_id: userId
         })
@@ -176,7 +176,7 @@ recognition.onresult = function(event) {
     const transcript = event.results[0][0].transcript;
     chatInput.value = transcript;
     updateMicrophoneIcon(false);
-    handleChat();
+    handleSend();
 };
 
 recognition.onerror = function(event) {
